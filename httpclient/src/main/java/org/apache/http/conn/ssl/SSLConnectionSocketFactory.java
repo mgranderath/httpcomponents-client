@@ -341,7 +341,7 @@ public class SSLConnectionSocketFactory implements LayeredConnectionSocketFactor
 
     @Override
     public Socket createSocket(final HttpContext context) throws IOException {
-        return SocketFactory.getDefault().createSocket();
+        return socketfactory != null ? socketfactory.createSocket() : SocketFactory.getDefault().createSocket();
     }
 
     @Override
